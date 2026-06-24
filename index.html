@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Museum Cinta</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link ke External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased selection:bg-rose-500 selection:text-white bg-[#0b0f19]">
+
+    <!-- Aura Glow Background Layer -->
+    <div class="aura-bg"></div>
+
+    <!-- 1. GERBANG MASUK (Password Screen) -->
+    <section id="login-screen" class="fixed inset-0 z-50 flex flex-col justify-center items-center px-6 transition-all duration-1000 ease-in-out bg-[#0b0f19]">
+        <div class="absolute w-[200px] h-[200px] bg-rose-500/15 blur-[80px] rounded-full top-1/4 left-0"></div>
+        <div class="absolute w-[200px] h-[200px] bg-indigo-500/15 blur-[80px] rounded-full bottom-1/4 right-0"></div>
+
+        <div class="glass-card w-full max-w-sm p-8 text-center relative z-10 shadow-2xl">
+            <h1 class="font-serif text-4xl font-bold mb-2 text-white tracking-wide">Museum Cinta</h1>
+            <p class="text-gray-400 mb-8 text-xs tracking-wide">Pameran privat. Masukkan kunci akses.</p>
+            
+            <div class="flex flex-col gap-4">
+                <input type="password" id="password-input" placeholder="Password..." 
+                    class="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 text-center tracking-widest text-sm transition-all">
+                <button onclick="checkPassword()" 
+                    class="w-full bg-gradient-to-r from-rose-500 via-pink-500 to-indigo-500 text-white font-medium py-3 rounded-lg hover:opacity-90 transition duration-300 shadow-lg shadow-rose-500/20 text-sm">
+                    Buka Pintu Museum
+                </button>
+            </div>
+            <p id="error-msg" class="text-rose-400 text-xs mt-4 font-medium hidden flex items-center justify-center gap-1">
+                <span>⚠️</span> Kunci salah sayang. Coba lagi.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. RUANG PAMERAN -->
+    <main id="museum-screen" class="museum-container opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out">
+        
+        <!-- INTRO -->
+        <section class="museum-section flex-col text-center px-6">
+            <div class="w-full max-w-sm py-10 relative">
+                <p class="text-[10px] tracking-[0.4em] text-rose-400 uppercase font-semibold mb-3">Akses Diberikan</p>
+                <h2 class="font-serif text-5xl font-bold mb-4 text-white leading-tight">Selamat Datang,<br><span class="text-gradient">Inspirasiku</span></h2>
+                <p class="text-gray-400 text-sm leading-relaxed mb-10">
+                    Setiap momen bersamamu adalah karya seni berharga. Gulir ke bawah perlahan.
+                </p>
+                <div class="flex flex-col items-center gap-2 text-gray-500 text-xs tracking-widest animate-pulse">
+                    <span>GULIR KE BAWAH</span>
+                    <span class="animate-bounce text-xl text-rose-400 mt-1">↓</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARYA 1 -->
+        <section class="museum-section px-5">
+            <div class="flex flex-col items-center w-full max-w-[320px] mx-auto">
+                <!-- Foto Frame -->
+                <div class="art-frame w-4/5 max-w-[240px] aspect-[4/5] z-10 shadow-2xl overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=600" alt="Momen 1" class="w-full h-full object-cover">
+                </div>
+                <!-- Plakat Keterangan -->
+                <div class="glass-card w-full p-6 pt-10 -mt-6 text-center shadow-xl relative z-0">
+                    <div class="absolute top-3 right-4 text-[10px] font-mono text-rose-400/50">#01</div>
+                    <h3 class="font-serif text-2xl font-bold mb-1 text-white">Kencan Pertama</h3>
+                    <p class="text-[10px] text-rose-400 tracking-wider mb-3 uppercase font-medium">14 Feb 2024 • Kedai Kopi</p>
+                    <p class="text-gray-300 leading-relaxed text-xs">
+                        Hari di mana aku terlalu gugup untuk bicara banyak, tapi senyummu membuat semuanya terasa mudah.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARYA 2 -->
+        <section class="museum-section px-5">
+            <div class="flex flex-col items-center w-full max-w-[320px] mx-auto">
+                <div class="art-frame w-4/5 max-w-[240px] aspect-[4/5] z-10 shadow-2xl overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80&w=600" alt="Momen 2" class="w-full h-full object-cover">
+                </div>
+                <div class="glass-card w-full p-6 pt-10 -mt-6 text-center shadow-xl relative z-0">
+                    <div class="absolute top-3 right-4 text-[10px] font-mono text-indigo-400/50">#02</div>
+                    <h3 class="font-serif text-2xl font-bold mb-1 text-white">Tawa di Minggu Sore</h3>
+                    <p class="text-[10px] text-indigo-400 tracking-wider mb-3 uppercase font-medium">10 Mei 2024 • Taman Kota</p>
+                    <p class="text-gray-300 leading-relaxed text-xs">
+                        Difoto tepat saat kamu menertawakan leluconku yang garing. Kebahagiaan paling sederhana yang terasa mewah.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARYA 3 -->
+        <section class="museum-section px-5">
+            <div class="flex flex-col items-center w-full max-w-[320px] mx-auto">
+                <div class="art-frame w-4/5 max-w-[240px] aspect-[4/5] z-10 shadow-2xl overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1501901609772-df0848060b33?auto=format&fit=crop&q=80&w=600" alt="Momen 3" class="w-full h-full object-cover">
+                </div>
+                <div class="glass-card w-full p-6 pt-10 -mt-6 text-center shadow-xl relative z-0">
+                    <div class="absolute top-3 right-4 text-[10px] font-mono text-pink-400/50">#03</div>
+                    <h3 class="font-serif text-2xl font-bold mb-1 text-white">Matahari Terbenam</h3>
+                    <p class="text-[10px] text-pink-400 tracking-wider mb-3 uppercase font-medium">17 Ags 2024 • Pantai</p>
+                    <p class="text-gray-300 leading-relaxed text-xs">
+                        Langit sore itu sangat indah, tapi sejujurnya, fokusku tidak pernah pada jingganya cakrawala, melainkan padamu.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUTRO / FOOTER -->
+        <section class="museum-section flex-col text-center px-6">
+            <div class="glass-card w-full max-w-sm p-8 shadow-2xl border border-white/5">
+                <h2 class="font-serif text-2xl font-bold mb-4 text-white italic">"Dan pameran ini masih akan terus bertambah..."</h2>
+                <p class="text-gray-400 text-xs mx-auto mb-6 leading-relaxed">Terima kasih telah menjadi inspirasi terbesar dalam hidupku.</p>
+                
+                <div class="w-8 h-px bg-white/20 mx-auto mb-4"></div>
+                
+                <footer class="text-[9px] text-rose-400/70 tracking-widest uppercase font-medium">
+                    Dikurasi dengan penuh cinta
+                </footer>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            const errorMsg = document.getElementById('error-msg');
+            const loginScreen = document.getElementById('login-screen');
+            const museumScreen = document.getElementById('museum-screen');
+
+            // Ganti password di sini
+            if(input.toLowerCase() === "sayang") {
+                errorMsg.classList.add('hidden');
+                
+                // Tutup keyboard di HP saat login berhasil
+                document.getElementById('password-input').blur();
+                
+                loginScreen.classList.add('opacity-0', 'scale-95');
+                loginScreen.classList.add('pointer-events-none');
+                
+                setTimeout(() => {
+                    loginScreen.style.display = 'none';
+                    museumScreen.classList.remove('opacity-0', 'pointer-events-none');
+                }, 1000);
+            } else {
+                errorMsg.classList.remove('hidden');
+                const inputEl = document.getElementById('password-input');
+                inputEl.classList.add('border-rose-500');
+                setTimeout(() => inputEl.classList.remove('border-rose-500'), 500);
+            }
+        }
+
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>
